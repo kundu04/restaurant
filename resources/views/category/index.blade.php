@@ -2,7 +2,6 @@
 
 @section('content')
 <div class="container">
-<a href="{{route('category.create')}}" class="btn btn-primary rounded">Add Category</a>
 
     <div class="row justify-content-center">
         <div class="col-md-8">
@@ -13,7 +12,12 @@
             @endif
             <div class="card">
            
-            <div class="card-header">{{ __('All Food Category') }}</div>
+            <div class="card-header">{{ __('All Food Category') }} 
+            <span class="float-right">
+            <a href="{{route('category.create')}}" class="btn btn-outline-primary rounded">Add Category</a>
+
+            </span>
+            </div>
             <div class="card-body">
             <table class="table">
                 <thead class="thead-dark">
@@ -34,7 +38,7 @@
                     </td>
                     <td>
                     <!-- Button trigger modal -->
-                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal{{$category->id}}">
+                    <button type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#exampleModal{{$category->id}}">
                     DELETE
                     </button>
                     <!-- Modal -->
@@ -78,6 +82,7 @@
                 @else<td>No Category to display</td>
                 @endif
             </table>
+           <div> {{$categories->links()}}</div>
             </div>
             </div>
         </div>

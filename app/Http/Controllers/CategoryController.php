@@ -13,7 +13,8 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $data['categories']=Category::get();
+        $data['categories']=Category::simplePaginate(10);
+       
        return view('category.index', $data);
     }
 
